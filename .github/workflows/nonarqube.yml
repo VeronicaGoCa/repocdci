@@ -29,10 +29,10 @@ jobs:
 
       - name: SonarQube Scan
         env:
-          GITHUB_TOKEN: ${{ 4bab2cdc5174c49053ae728541698c3a61d882e5 }}
-          SONAR_TOKEN: ${{ squ_cd425c169125ca7258f786ad118b4349e6ae2663 }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           ./gradlew sonarqube \
-            -Dsonar.projectKey=repocdci \
+            -Dsonar.projectKey=your_project_key \
             -Dsonar.host.url=http://localhost:9000 \
-            -Dsonar.login=${{ squ_cd425c169125ca7258f786ad118b4349e6ae2663 }}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
